@@ -573,6 +573,9 @@ map <F3> :GtagsCursor
 
 "nerdcommenter
 
+"gdbmgr
+
+"bufexplorer
 
 "=========================== unused plugins ==========================
 
