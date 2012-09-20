@@ -1,11 +1,6 @@
 "=======================configure variable===============
 let s:xxx = 0
 
-
-
-"=======================general==========================
-
-
 if(has("win32") || has("win95") || has("win64") || has("win16")) "判定当前操作系统类型
     let g:iswindows=1
     let g:isunix=0
@@ -14,9 +9,7 @@ else
     let g:isunix=1
 endif
 
-
-
-
+"=======================general==========================
 
 set nocompatible
 filetype plugin indent on
@@ -105,7 +98,7 @@ set whichwrap+=<,>,[,]
 
 "设置默认目录
 if(g:isunix==1)
-    cd ~/projects/vim
+    cd ~/workspace/vim
 else
     cd E:\Document\Vim
 endif
@@ -209,22 +202,12 @@ map <F5> :cp<cr>
 map <F6> :cnext<cr>
 map <F7> :clist<cr>
 
-"注释
-map <C-s> :call Annotation()<cr>
-
 imap <F5> <Esc><F5>
 imap <F6> <Esc><F6>
 imap <F7> <Esc><F7>
 imap <F9> <Esc><F9>   
 imap <C-F9> <Esc><C-F9>   
 imap <C-ENTER> <Esc>o   
-inoremap ( ()<ESC>i
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<ESC>i
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ []<ESC>i
-inoremap ] <c-r>=ClosePair(']')<CR>
-
 
 
 
@@ -253,14 +236,14 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "abbr if if ()<left>
 "abbr ie if () ;<cr> else ;<up><left><left><left>
 
-abbr fi for (int i = 0; i < ; i++)<left><left><left><left><left><left><left>
-abbr fi1 for (int i = 1; i <= ; i++)<left><left><left><left><left><left><left>
-abbr fj for (int j = 0; j < ; j++)<left><left><left><left><left><left><left>
-abbr fj1 for (int j = 1; j <= ; j++)<left><left><left><left><left><left><left>
-abbr fk for (int k = 0; k < ; k++)<left><left><left><left><left><left><left>
-abbr fk1 for (int k = 1; k <= ; k++)<left><left><left><left><left><left><left>
-abbr fp for (int p = 0; p < ; p++)<left><left><left><left><left><left><left>
-abbr fp1 for (int p = 1; p <= ; p++)<left><left><left><left><left><left><left>
+"abbr fi for (int i = 0; i < ; i++)<left><left><left><left><left><left><left>
+"abbr fi1 for (int i = 1; i <= ; i++)<left><left><left><left><left><left><left>
+"abbr fj for (int j = 0; j < ; j++)<left><left><left><left><left><left><left>
+"abbr fj1 for (int j = 1; j <= ; j++)<left><left><left><left><left><left><left>
+"abbr fk for (int k = 0; k < ; k++)<left><left><left><left><left><left><left>
+"abbr fk1 for (int k = 1; k <= ; k++)<left><left><left><left><left><left><left>
+"abbr fp for (int p = 0; p < ; p++)<left><left><left><left><left><left><left>
+"abbr fp1 for (int p = 1; p <= ; p++)<left><left><left><left><left><left><left>
 "abbr ww while()<cr>{<cr>}<up><up><right><right><right><right><right>
 "abbr ca int Case;<cr>scanf("%d", &Case);<cr> for (int i = 1; i <= Case; i++) <cr>{<cr>};<up><enter>
 "abbr dou double 
@@ -380,29 +363,6 @@ func! OpenTemplateFile(file)
 endfunc
  
 
-"加注释
-func! Annotation()
-    if match(getline('.'), '//') == 0
-        exec "normal 0xx"
-    else
-        exec "normal 0i//\<ESC>"
-    endif
-endfunc
-
-
-"括号补全
-function! ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endf
-
-
-
-
-
 
 
 "定义函数SetTitle，自动插入文件头 
@@ -520,33 +480,9 @@ endfunc
 "tagbar config
 let g:tagbar_width = 28
 
-"WinManager
-let g:persistentBehaviour=0
-
-let g:NERDTree_title='NERD Tree'
-function! NERDTree_Start()
-    exec 'NERDTree'
-endfunction
-function! NERDTree_IsValid()
-    return 1
-endfunction
-
-let g:Tagbar_title='Tagbar'
-function! Tagbar_Start()
-    exec 'TagbarOpen'
-endfunction
-function! Tagbar_IsValid()
-    return 1
-endfunction
-
-"nmap <F12> :WMToggle<cr>
-"let g:winManagerWindowLayout='NERDTree|TagList'
-let g:winManagerWindowLayout='NERDTree|Tagbar'
-"let g:winManagerWindowLayout='FileExplorer|TagList'
-
 
 "Grep
-"nnoremap <silent> <F3> :Grep<CR>
+"seted
 
 
 "nerd tree
@@ -554,6 +490,7 @@ let NERDTreeWinSize=30
 
 
 "pyflakes
+"seted
 
 
 "neocomplcach
@@ -561,6 +498,7 @@ let g:neocomplcache_enable_at_startup = 1
 
 
 "snipMate
+"seted
 
 "Gtags
 map <F2> :Gtags 
@@ -568,30 +506,40 @@ map <F3> :GtagsCursor
 
 
 "csindent
-
-"nerdcomment
+let g:csindent_ini='~/.vim/csindent/.vim_csindent.ini'
 
 "nerdcommenter
+"seted
 
 "gdbmgr
 
 "bufexplorer
+"seted
+
+"Auto Pairs
+"seted
+
+"vcscommand
+let VCSCommandMapPrefix='<leader>v'
+"seted
+
+"Conque Shell
+"seted
+
+"command-t
+"seted
+
+"python.vim : Enhanced version of the python syntax highlighting script 
+"seted
+
+"pathogen.vim
+call pathogen#infect()
+"seted
+
+"fugitive
+"seted
 
 "=========================== unused plugins ==========================
-
-
-"插件Taglist的设置
-"TlistUpdate可以更新tags
-"map <F12> :silent! Tlist<CR> "按下F7就可以呼出了
-let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
-let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
-let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表，如果想只有1个，设置为1
-let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
-let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
-"是否一直处理tags.1:处理;0:不处理
-let Tlist_Process_File_Always=0 "不是一直实时更新tags，因为没有必要
-let Tlist_Inc_Winwidth=0
-
 
 "插件omnicppcomplete设置
 "关闭omnicppcomplete提示变量定义的预览窗口
@@ -617,10 +565,7 @@ let g:acp_behaviorKeywordCommand = "\<C-p>"
 let g:acp_completeoptPreview = 0
 let g:acp_behaviorKeywordLength = 2
 
-"neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-
-"========================others=======================================
+"======================== os related =======================================
 
 "enable ctrl-s in terminal
 if (g:isunix == 1)
