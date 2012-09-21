@@ -469,6 +469,64 @@ endfunc
 
 "==========================插件设置=============================
 
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+
+" original repos on github
+"
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+
+" vim-scripts repos
+"
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" Bundle 'rails.vim'
+Bundle 'Command-T'
+" Bundle 'Conque-Shell'
+Bundle 'fugitive.vim'
+Bundle 'pyflakes.vim'
+Bundle 'Tagbar'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+Bundle 'grep.vim'
+Bundle 'neocomplcache'
+Bundle 'snipMate'
+" Bundle 'csindent.vim'
+Bundle 'bufexplorer.zip'
+Bundle 'Auto-Pairs'
+Bundle 'vcscommand.vim'
+" Bundle 'pathogen.vim'
+
+
+" non github repos
+"
+" Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+filetype plugin indent on     " required!
+" or 
+" filetype plugin on          " to not use the indentation settings set by plugins
+
+
+
+
+
+
+
+
+
 "ide configure
 map <F12> :call OpenTagbarAndNERDTree()<CR>
 function! OpenTagbarAndNERDTree()
@@ -506,7 +564,7 @@ map <F3> :GtagsCursor
 
 
 "csindent
-let g:csindent_ini='~/.vim/csindent/.vim_csindent.ini'
+let g:csindent_ini='/home/daoyuan/.vim/csindent/.vim_csindent.ini'
 
 "nerdcommenter
 "seted
@@ -532,11 +590,14 @@ let VCSCommandMapPrefix='<leader>v'
 "python.vim : Enhanced version of the python syntax highlighting script 
 "seted
 
-"pathogen.vim
-call pathogen#infect()
+"google.vim : Indent file for Google C++ Coding Style 
 "seted
 
 "fugitive
+"seted
+
+"pathogen.vim
+call pathogen#infect('bundle_vundle_improper')
 "seted
 
 "=========================== unused plugins ==========================

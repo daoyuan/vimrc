@@ -135,8 +135,6 @@ endfunction
 function SelectCodingStyleIndent()
     if !exists('g:csindent_ini')
         let g:csindent_ini = expand('~/.vim_csindent.ini')
-    else
-        let g:csindent_ini = expand(g:csindent_ini)
     endif
     if !filereadable(g:csindent_ini)
         let b:csindent = 'none'
