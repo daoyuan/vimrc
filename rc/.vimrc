@@ -200,7 +200,7 @@ map <F8> :call Debug()<CR>
 "错误列表
 map <F5> :cp<cr>
 map <F6> :cnext<cr>
-map <F7> :clist<cr>
+map <F7> :QFtoggle<cr>
 
 imap <F5> <Esc><F5>
 imap <F6> <Esc><F6>
@@ -330,6 +330,31 @@ func! Debug()
 endfunc 
 "结束定义Debug
 
+"toggle quickfix
+function! s:qf_toggle() 
+    for i in range(1, winnr('$')) 
+        let bnum = winbufnr(i) 
+        if getbufvar(bnum, '&buftype') == 'quickfix' 
+            cclose 
+            wincmd p
+            return 
+        endif 
+    endfor 
+    botright copen 8
+endfunction 
+
+command! QFtoggle call s:qf_toggle() 
+
+function! s:gtags_update()
+    let l:result = system('global -u')
+    redraw!
+    "if v:shell_error
+        "echohl ErrorMsg | echo l:result[:-2] | echohl None
+    "else
+        "hi SucceedMsg term=standout cterm=bold ctermfg=7 ctermbg=2 gui=bold guifg=White guibg=Green
+        "echohl SucceedMsg | echo "global update SUCCEED!" | echohl None
+    "endif
+endfunction
 
 
 
@@ -490,9 +515,6 @@ Bundle 'gmarik/vundle'
 
 " vim-scripts repos
 "
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" Bundle 'rails.vim'
 Bundle 'Command-T'
 " Bundle 'Conque-Shell'
 Bundle 'fugitive.vim'
@@ -508,6 +530,17 @@ Bundle 'bufexplorer.zip'
 Bundle 'Auto-Pairs'
 Bundle 'vcscommand.vim'
 " Bundle 'pathogen.vim'
+" Bundle 'neocomplcache-snippets_complete'
+Bundle 'ShowMarks'
+Bundle 'SuperTab'
+Bundle 'STL-improved'
+Bundle 'autoload_cscope.vim'
+Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'a.vim'
+Bundle 'mru.vim'
+Bundle 'lookupfile'
+Bundle 'genutils'
 
 
 " non github repos
@@ -554,6 +587,8 @@ let NERDTreeWinSize=30
 "neocomplcach
 let g:neocomplcache_enable_at_startup = 1 
 
+"neocomplcache-snippets_complete
+
 
 "snipMate
 "seted
@@ -561,7 +596,8 @@ let g:neocomplcache_enable_at_startup = 1
 "Gtags
 map <F2> :Gtags 
 map <F3> :GtagsCursor 
-
+"command! GtagsUpdate call s:gtags_update()
+au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
 
 "csindent
 let g:csindent_ini='/home/daoyuan/.vim/csindent/.vim_csindent.ini'
@@ -599,6 +635,18 @@ let VCSCommandMapPrefix='<leader>v'
 "pathogen.vim
 call pathogen#infect('bundle_vundle_improper')
 "seted
+
+
+
+
+"
+"c/c++ complete
+"python cscope
+
+
+
+
+
 
 "=========================== unused plugins ==========================
 
