@@ -603,6 +603,7 @@ command! GtagsUpdate call s:gtags_update()
 let g:csindent_ini='/home/daoyuan/.vim/csindent/.vim_csindent.ini'
 
 "nerdcommenter
+let NERDSpaceDelims=1
 "seted
 
 "gdbmgr

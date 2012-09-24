@@ -2,6 +2,6 @@
 *.o
 *.so
 bundle/
-*doc/tags
+tags
 doc/tags-cn
 doc/tags-ja
