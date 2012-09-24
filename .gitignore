@@ -3,3 +3,5 @@
 *.so
 bundle/
 *doc/tags
+doc/tags-cn
+doc/tags-ja
