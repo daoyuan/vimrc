@@ -348,12 +348,12 @@ command! QFtoggle call s:qf_toggle()
 function! s:gtags_update()
     let l:result = system('global -u')
     redraw!
-    "if v:shell_error
-        "echohl ErrorMsg | echo l:result[:-2] | echohl None
-    "else
-        "hi SucceedMsg term=standout cterm=bold ctermfg=7 ctermbg=2 gui=bold guifg=White guibg=Green
-        "echohl SucceedMsg | echo "global update SUCCEED!" | echohl None
-    "endif
+    if v:shell_error
+        echohl ErrorMsg | echo l:result[:-2] | echohl None
+    else
+        hi SucceedMsg term=standout cterm=bold ctermfg=7 ctermbg=2 gui=bold guifg=White guibg=Green
+        echohl SucceedMsg | echo "global update SUCCEED!" | echohl None
+    endif
 endfunction
 
 
@@ -596,8 +596,8 @@ let g:neocomplcache_enable_at_startup = 1
 "Gtags
 map <F2> :Gtags 
 map <F3> :GtagsCursor 
-"command! GtagsUpdate call s:gtags_update()
-au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
+command! GtagsUpdate call s:gtags_update()
+"au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
 
 "csindent
 let g:csindent_ini='/home/daoyuan/.vim/csindent/.vim_csindent.ini'
