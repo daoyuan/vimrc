@@ -1,3 +1,5 @@
+"+++++++++++++++++++++++++++++++++++++++++++"
+" TODO: rearrange this file by filetype"
 "=======================configure variable===============
 let s:xxx = 0
 
@@ -75,6 +77,16 @@ set incsearch
 set ruler
 set showcmd
 
+" cursorcolumn
+" set cursorcolumn
+
+" colorcolumn
+set textwidth=80
+set colorcolumn=+1
+" override by ftscript under /usr/**/vim73/ftplugin/c.vim", implement this in autocmd
+" set formatoptions+=1
+set formatoptions+=l
+
 "设置折叠 
 set foldcolumn=2 
 set foldmethod=indent 
@@ -91,10 +103,17 @@ set nobackup
 
 "在输入命令时列出匹配项目
 set wildmenu
+set wildmode=longest:full,full
+
 " 使backspace正常处理indent, eol, start等
 set backspace=indent,eol,start
 " 允许backspace和光标键跨越行边界
 set whichwrap+=<,>,[,]
+
+" 文件搜索路径，向上搜索(for gf op)
+set path+=;
+set path+=/usr/include/c++/**,/usr/include/**,/usr/local/include/**,/usr/lib/gcc/**2/include*/**
+set path+=~/workspace/coding/.ymake-out/**1/thrift-out
 
 "设置默认目录
 if(g:isunix==1)
@@ -143,6 +162,9 @@ else
     autocmd! bufwritepost _vimrc source $VIM/_vimrc
 endif
 
+au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l
+
+au FileType python set cursorcolumn
 
 "每当文件保存时，就自动更新当前目录的tags, cscope
 "autocmd! bufwritepost *.c,*.h,*.cpp call Update_current_tags_and_cscope()
@@ -532,15 +554,25 @@ Bundle 'vcscommand.vim'
 " Bundle 'pathogen.vim'
 " Bundle 'neocomplcache-snippets_complete'
 Bundle 'ShowMarks'
-Bundle 'SuperTab'
+" Bundle 'SuperTab'
 Bundle 'STL-improved'
 Bundle 'autoload_cscope.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'a.vim'
 Bundle 'mru.vim'
-Bundle 'lookupfile'
+" Bundle 'lookupfile'
 Bundle 'genutils'
+" Bundle 'JavaScript-Indent'
+" Bundle 'ZenCoding.vim'
+" Bundle 'vim-jsbeautify'
+" Bundle 'einars/js-beautify'
+Bundle 'sprsquish/thrift.vim'
+" Bundle 'std_c.zip'
+" Bundle 'easytags.vim'
+Bundle 'TagHighlight'
+Bundle 'Indent-Guides'
+
 
 
 " non github repos
@@ -645,8 +677,14 @@ call pathogen#infect('bundle_vundle_improper')
 "python cscope
 
 
+au BufRead,BufNewFile *.thrift set filetype=thrift
+" au! Syntax thrift source ~/.vim/thrift.vim"
 
-
+" Indent-Guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size=1
+hi IndentGuidesOdd  guibg=red   ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
 
 
 "=========================== unused plugins ==========================
@@ -679,10 +717,11 @@ let g:acp_behaviorKeywordLength = 2
 
 "enable ctrl-s in terminal
 if (g:isunix == 1)
-  silent ! stty ixoff -ixon
+    silent ! stty ixoff -ixon
 endif
 
 
 
 
 "====================================================================
+set showcmd
