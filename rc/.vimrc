@@ -18,33 +18,6 @@ filetype plugin indent on
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 
-"set diffexpr=MyDiff()
-function! MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
-
-
-
 
 
 syntax on
@@ -81,7 +54,7 @@ set showcmd
 " set cursorcolumn
 
 " colorcolumn
-set textwidth=80
+set textwidth=78
 set colorcolumn=+1
 " override by ftscript under /usr/**/vim73/ftplugin/c.vim", implement this in autocmd
 " set formatoptions+=1
@@ -126,28 +99,10 @@ set autochdir
 
 colorscheme torte
 
-"cscope
-if has("cscope")
-    "set csprg=/usr/local/bin/cscope
-    "set csto=0
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-        " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
-
 
 "=============================AutoCommand===========================
 
 "AutoCommand 
-"新建.c,.h,.sh,.java文件，自动插入文件头 
-"autocmd BufNewFile *.[ch],*.sh,*.cpp,*.java exec ":call SetTitle()" 
 "新建文件后，自动定位到文件末尾 
 autocmd BufNewFile * normal G
 
@@ -165,9 +120,6 @@ endif
 au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l
 
 au FileType python set cursorcolumn
-
-"每当文件保存时，就自动更新当前目录的tags, cscope
-"autocmd! bufwritepost *.c,*.h,*.cpp call Update_current_tags_and_cscope()
 
 
 "==========================映射===============================
@@ -187,12 +139,6 @@ map <leader>t :tabedit
 map <leader>h :help 
 "map <leader>w :w!<CR>
 map <leader>w :update<CR>
-if(g:isunix==0)
-    map <leader>usaco :call OpenTemplateFile("D:\\My Documents\\Dev C++ project\\OJ\\USACO\\Section.cpp")<CR>
-    map <leader>poj :call OpenTemplateFile("D:\\My Documents\\Dev C++ project\\OJ\\POJ\\template.cpp")<CR>
-else
-    "map <leader>test :call OpenTemplateFile("~/project/vim/template.cpp")<CR>
-endif
 
 "使用<leader>e打开当前文件同目录中的文件 
 if(g:isunix==1)
@@ -233,43 +179,28 @@ imap <C-ENTER> <Esc>o
 
 
 
-"cscope
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+"要在命令行上实现 Emacs 风格的编辑操作：
+" 至行首
+cnoremap <C-A>  <Home>
+" 后退一个字符
+cnoremap <C-B>  <Left>
+" 删除光标所在的字符
+" cnoremap <C-D>  <Del>
+" 至行尾
+cnoremap <C-E>  <End>
+" 前进一个字符
+cnoremap <C-F>  <Right>
+" 取回较新的命令行
+" cnoremap <C-N>  <Down>
+" 取回以前 (较旧的) 命令行
+" cnoremap <C-P>  <Up>
+" 后退一个单词
+cnoremap <Esc><C-B> <S-Left>
+" 前进一个单词
+cnoremap <Esc><C-F> <S-Right>
 
 
-"手动更新tags, cscope
-"map <F12> :call Update_current_tags_and_cscope()<CR>
-
-
-
-"abbr s1 scanf("%d", &);<left><left>
-"abbr s2 scanf("%d%d", & , &);<left><left><left><left><left><left>
-"abbr s3 scanf("%d%d%d", & , & , &);<left><left><left><left><left><left><left><left><left>
-"abbr p1 printf("%d\n",);<left><left>
-"abbr p2 printf("%d %d\n", ,);<left><left><left><left>
-"abbr p3 printf("%d %d %d\n", , ,);<left><left><left><left><left><left>
-"abbr if if ()<left>
-"abbr ie if () ;<cr> else ;<up><left><left><left>
-
-"abbr fi for (int i = 0; i < ; i++)<left><left><left><left><left><left><left>
-"abbr fi1 for (int i = 1; i <= ; i++)<left><left><left><left><left><left><left>
-"abbr fj for (int j = 0; j < ; j++)<left><left><left><left><left><left><left>
-"abbr fj1 for (int j = 1; j <= ; j++)<left><left><left><left><left><left><left>
-"abbr fk for (int k = 0; k < ; k++)<left><left><left><left><left><left><left>
-"abbr fk1 for (int k = 1; k <= ; k++)<left><left><left><left><left><left><left>
-"abbr fp for (int p = 0; p < ; p++)<left><left><left><left><left><left><left>
-"abbr fp1 for (int p = 1; p <= ; p++)<left><left><left><left><left><left><left>
-"abbr ww while()<cr>{<cr>}<up><up><right><right><right><right><right>
-"abbr ca int Case;<cr>scanf("%d", &Case);<cr> for (int i = 1; i <= Case; i++) <cr>{<cr>};<up><enter>
-"abbr dou double 
-"abbr bo bool 
 
 "================================================================func===========================================================
 
@@ -380,141 +311,14 @@ endfunction
 
 
 
-"产生stl_tags
-"ctags -R -F -B -f ~/ctags --c++-kinds=+p --fields=+iaS --links=no  --extra=+qf -h .h. --langmap=c++:.h.    /usr/include/
-
-
-"更新tags,cscope
-func! Update_current_tags_and_cscope()
-	silent ! ctags -R -F -B --c++-kinds=+p --fields=+iaS --extra=+qf .
-    if(g:iswindows!=1)
-        silent! execute "!find . -name '*.cc' -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.java' -o -name '*.cs' > cscope.files"
-    else
-        silent! execute "!dir /s/b *.cc,*.c,*.cpp,*.h,*.java,*.cs >> cscope.files"
-    endif
-    silent! execute "!cscope -bq"
-    "execute "normal :"
-    if filereadable("cscope.out")
-        silent! cs kill -1
-        "cs reset
-        silent! cs add cscope.out
-    endif
-endfunc
-
-
-
-
-"打开指定（模板）文件
-func! OpenTemplateFile(file)
-    exec "e ".a:file
-endfunc
- 
-
-
-
-"定义函数SetTitle，自动插入文件头 
-func! SetTitle()
-
-call setline(1, "//#######################################################################") 
-call append(line("."), "//# Author: lucas") 
-call append(line(".")+1, "//# Created Time: ".strftime("%c")) 
-call append(line(".")+2, "//# File Name: ".expand("%")) 
-call append(line(".")+3, "//# Description: ") 
-call append(line(".")+4, "//#######################################################################") 
-if &filetype == 'c' 
-call append(line(".")+5, "#include <stdio.h>") 
-call append(line(".")+6, " ") 
-call append(line(".")+7, "int main(){") 
-call append(line(".")+8, " ") 
-call append(line(".")+9, " return 0;")
-call append(line(".")+10, "}") 
-call append(line(".")+6, " ") 
-elseif &filetype == 'cpp' 
-call append(line(".")+5, "#include <iostream>") 
-call append(line(".")+6, " ") 
-call append(line(".")+7, "int main(){") 
-call append(line(".")+8, " ") 
-call append(line(".")+9, " return 0;")
-call append(line(".")+10, "}") 
-call append(line(".")+6, " ") 
-elseif &filetype == 'java' 
-call append(line(".")+5, "public class ".expand("%<").expand("{")) 
-call append(line(".")+6, " public static void main(String[] args){") 
-call append(line(".")+7, " ") 
-call append(line(".")+8, " System.out.println();")
-call append(line(".")+9, " }") 
-call append(line(".")+10, "}") 
-call append(line(".")+11, " ") 
-endif 
-endfunc
-
-
-
-
-
-"ctags,cscope设置
-"代码补全配置
-"function! Do_CsTag()
-"    let dir = getcwd()
-"    if filereadable("tags")
-"        if(g:iswindows==1)
-"            let tagsdeleted=delete(dir."\\"."tags")
-"        else
-"            let tagsdeleted=delete("./"."tags")
-"        endif
-"        if(tagsdeleted!=0)
-"            echohl WarningMsg | echo "Fail to do tags! I cannot delete the tags" | echohl None
-"            return
-"        endif
-"    endif
-"    if has("cscope")
-"        silent! execute "cs kill -1"
-"    endif
-"    if filereadable("cscope.files")
-"        if(g:iswindows==1)
-"            let csfilesdeleted=delete(dir."\\"."cscope.files")
-"        else
-"            let csfilesdeleted=delete("./"."cscope.files")
-"        endif
-"        if(csfilesdeleted!=0)
-"            echohl WarningMsg | echo "Fail to do cscope! I cannot delete the cscope.files" | echohl None
-"            return
-"        endif
-"    endif
-"    if filereadable("cscope.out")
-"        if(g:iswindows==1)
-"            let csoutdeleted=delete(dir."\\"."cscope.out")
-"        else
-"            let csoutdeleted=delete("./"."cscope.out")
-"        endif
-"        if(csoutdeleted!=0)
-"            echohl WarningMsg | echo "Fail to do cscope! I cannot delete the cscope.out" | echohl None
-"            return
-"        endif
-"    endif
-"    if(executable('ctags'))
-        "silent! execute "!ctags -R --c-types=+p --fields=+S *"
-"        silent! execute "!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
-"    endif
-"    if(executable('cscope') && has("cscope") )
-"        if(g:iswindows!=1)
-"            silent! execute "!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.java' -o -name '*.cs' > cscope.files"
-"        else
-"            silent! execute "!dir /s/b *.c,*.cpp,*.h,*.java,*.cs >> cscope.files"
-"        endif
-"        silent! execute "!cscope -b"
-"        execute "normal :"
-"        if filereadable("cscope.out")
-"            silent! execute "cs add cscope.out"
-"        endif
-"    endif
-"endfunction
-
-
 
 
 
 "==========================插件设置=============================
+
+" gocode"
+set rtp+=/usr/local/go/misc/vim
+
 
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -542,7 +346,7 @@ Bundle 'Command-T'
 Bundle 'fugitive.vim'
 Bundle 'pyflakes.vim'
 Bundle 'Tagbar'
-Bundle 'The-NERD-tree'
+" Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
 Bundle 'neocomplcache'
@@ -556,7 +360,7 @@ Bundle 'vcscommand.vim'
 Bundle 'ShowMarks'
 " Bundle 'SuperTab'
 Bundle 'STL-improved'
-Bundle 'autoload_cscope.vim'
+" Bundle 'autoload_cscope.vim'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'a.vim'
@@ -572,6 +376,9 @@ Bundle 'sprsquish/thrift.vim'
 " Bundle 'easytags.vim'
 Bundle 'TagHighlight'
 Bundle 'Indent-Guides'
+Bundle 'DoxygenToolkit.vim'
+" Bundle 'nsf/gocode'
+Bundle 'clang-complete'
 
 
 
@@ -617,7 +424,7 @@ let NERDTreeWinSize=30
 
 
 "neocomplcach
-let g:neocomplcache_enable_at_startup = 1 
+" let g:neocomplcache_enable_at_startup = 1 
 
 "neocomplcache-snippets_complete
 
@@ -687,31 +494,17 @@ hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
 
+
+
+" clang-complete
+let g:clang_use_library = 1
+let g:clang_complete_macros = 1
+let g:clang_debug = 1
+
+
+
 "=========================== unused plugins ==========================
 
-"插件omnicppcomplete设置
-"关闭omnicppcomplete提示变量定义的预览窗口
-set completeopt=menu
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_SelectFirstItem = 2
-"
-if(g:isunix==0)
-    set tags+=D:\stl_tags
-else
-    set tags+=~/.vim/stl_tags,~/workspace/coding/tags,~/workspace/coding/ImageCapture
-endif
-
-
-
-"插件acp设置
-let g:acp_enableAtStartup = 0
-" 自动完成设置 禁止在插入模式移动的时候出现 Complete 提示
-let g:acp_mappingDriven = 1
-let g:acp_ignorecaseOption = 0
-" 自动完成设置为 Ctrl + p 弹出
-let g:acp_behaviorKeywordCommand = "\<C-p>"
-let g:acp_completeoptPreview = 0
-let g:acp_behaviorKeywordLength = 2
 
 "======================== os related =======================================
 
