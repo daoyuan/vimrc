@@ -29,7 +29,7 @@ set ignorecase
 "设置鼠标为可行
 set mouse=a
 "永远显示状态行
-"set laststatus=2
+set laststatus=2
 
 "自动缩进设置 
 set cindent 
@@ -97,7 +97,7 @@ endif
 "设置当前文件目录
 set autochdir
 
-colorscheme torte
+" colorscheme torte
 
 
 "=============================AutoCommand===========================
@@ -117,7 +117,7 @@ else
     autocmd! bufwritepost _vimrc source $VIM/_vimrc
 endif
 
-au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l
+au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l | set formatoptions+=t
 
 au FileType python set cursorcolumn
 
@@ -341,32 +341,32 @@ Bundle 'gmarik/vundle'
 
 " vim-scripts repos
 "
-Bundle 'Command-T'
+" Bundle 'Command-T'
 " Bundle 'Conque-Shell'
 Bundle 'fugitive.vim'
-Bundle 'pyflakes.vim'
+" Bundle 'pyflakes.vim'
 Bundle 'Tagbar'
 " Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
 Bundle 'neocomplcache'
-Bundle 'snipMate'
+" Bundle 'snipMate'
 " Bundle 'csindent.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'Auto-Pairs'
 Bundle 'vcscommand.vim'
 " Bundle 'pathogen.vim'
 " Bundle 'neocomplcache-snippets_complete'
-Bundle 'ShowMarks'
+" Bundle 'ShowMarks'
 " Bundle 'SuperTab'
-Bundle 'STL-improved'
+" Bundle 'STL-improved'
 " Bundle 'autoload_cscope.vim'
-Bundle 'FuzzyFinder'
-Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" Bundle 'L9'
 Bundle 'a.vim'
-Bundle 'mru.vim'
+" Bundle 'mru.vim'
 " Bundle 'lookupfile'
-Bundle 'genutils'
+" Bundle 'genutils'
 " Bundle 'JavaScript-Indent'
 " Bundle 'ZenCoding.vim'
 " Bundle 'vim-jsbeautify'
@@ -379,6 +379,13 @@ Bundle 'Indent-Guides'
 Bundle 'DoxygenToolkit.vim'
 " Bundle 'nsf/gocode'
 Bundle 'clang-complete'
+Bundle 'Shougo/neocomplcache-clang_complete'
+Bundle 'Shougo/neosnippet'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/syntastic'
+Bundle 'klen/python-mode'
 
 
 
@@ -424,7 +431,7 @@ let NERDTreeWinSize=30
 
 
 "neocomplcach
-" let g:neocomplcache_enable_at_startup = 1 
+let g:neocomplcache_enable_at_startup = 1 
 
 "neocomplcache-snippets_complete
 
@@ -493,15 +500,58 @@ let g:indent_guides_guide_size=1
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 
-
-
+" neocomplcache-clang_complete
+let g:neocomplcache_force_overwrite_completefunc=1
 
 " clang-complete
 let g:clang_use_library = 1
 let g:clang_complete_macros = 1
 let g:clang_debug = 1
+" let g:clang_complete_auto = 0
 
 
+" Lokaltog/vim-powerline
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_theme = 'default'
+" let g:Powerline_stl_path_style = 'relative'
+
+set guifont=anonymous\ Pro-Powerline-Powerline.ttf
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
+
+
+" altercation/vim-colors-solarized
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+    let g:solarized_termcolors=256
+endif
+colorscheme solarized
+
+
+
+" kien/ctrlp.vim
+" if (g:isunix)
+"     let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+" else
+"     let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+" endif
+
+
+" Shougo/neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
 
 "=========================== unused plugins ==========================
 
