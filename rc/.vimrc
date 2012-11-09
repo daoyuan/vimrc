@@ -16,7 +16,7 @@ endif
 set nocompatible
 filetype plugin indent on
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
+" source $VIMRUNTIME/mswin.vim
 
 
 
@@ -129,7 +129,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 "绑定自动补全的快捷键<C-X><C-O>到<leader>; 
-imap <leader>; <C-X><C-O>
+" imap <leader>; <C-X><C-O>
 
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n, 
 "<leader>p 
@@ -386,6 +386,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
 Bundle 'klen/python-mode'
+Bundle 'JSON.vim'
 
 
 
@@ -494,12 +495,6 @@ call pathogen#infect('bundle_vundle_improper')
 au BufRead,BufNewFile *.thrift set filetype=thrift
 " au! Syntax thrift source ~/.vim/thrift.vim"
 
-" Indent-Guides
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size=1
-hi IndentGuidesOdd  guibg=red   ctermbg=3
-hi IndentGuidesEven guibg=green ctermbg=4
-
 " neocomplcache-clang_complete
 let g:neocomplcache_force_overwrite_completefunc=1
 
@@ -533,6 +528,12 @@ endif
 colorscheme solarized
 
 
+" Indent-Guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size=1
+hi IndentGuidesOdd  guibg=red   ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
+
 
 " kien/ctrlp.vim
 " if (g:isunix)
@@ -552,6 +553,27 @@ smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" 
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
+
+
+
+" a.vim
+let g:alternateNoDefaultAlternate=1
+
+
+
+" JSON.vim
+au! BufRead,BufNewFile *.json set filetype=json 
+augroup json_autocmd 
+    autocmd! 
+    autocmd FileType json set autoindent 
+    autocmd FileType json set formatoptions=tcq2l 
+    autocmd FileType json set textwidth=78 shiftwidth=2 
+    autocmd FileType json set softtabstop=2 tabstop=8 
+    autocmd FileType json set expandtab 
+    autocmd FileType json set foldmethod=syntax 
+augroup END 
+
+
 
 "=========================== unused plugins ==========================
 
