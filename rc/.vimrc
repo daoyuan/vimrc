@@ -86,7 +86,7 @@ set whichwrap+=<,>,[,]
 " 文件搜索路径，向上搜索(for gf op)
 set path+=;
 set path+=/usr/include/c++/**,/usr/include/**,/usr/local/include/**,/usr/lib/gcc/**2/include*/**
-set path+=~/workspace/coding/.ymake-out/**1/thrift-out
+set path+=~/workspace/coding/.ymake-out/dbg/thrift-out
 
 "设置默认目录
 if(g:isunix==1)
@@ -119,7 +119,7 @@ endif
 
 au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l | set formatoptions+=t
 
-au FileType python set cursorcolumn
+au FileType python set cursorcolumn | call s:python_gf()
 
 
 "==========================映射===============================
@@ -309,8 +309,20 @@ function! s:gtags_update()
     endif
 endfunction
 
-
-
+function! s:python_gf()
+python << EOF
+import os
+import sys
+import vim
+vim.command(r"setlocal path=.,,")
+for p in sys.path:
+    # Add each directory in sys.path, if it exists.
+    if os.path.isdir(p):
+        # Command 'set' needs backslash before each space.
+        vim.command(r"setlocal path+=%s" % (p.replace(" ", r"\ ")))
+        pass
+EOF
+endfunction
 
 
 
@@ -350,7 +362,7 @@ Bundle 'Tagbar'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
 Bundle 'neocomplcache'
-" Bundle 'snipMate'
+Bundle 'snipMate'
 " Bundle 'csindent.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'Auto-Pairs'
@@ -438,6 +450,7 @@ let g:neocomplcache_enable_at_startup = 1
 
 
 "snipMate
+let g:snips_author = 'ludaoyuan@jike.com (Daoyuan Lu)'
 "seted
 
 "Gtags
@@ -466,6 +479,14 @@ let VCSCommandMapPrefix='<leader>v'
 "seted
 
 "Conque Shell
+map <c-x><c-b>n :ConqueTerm bash<cr>
+map <c-x><c-b>h :ConqueTermSplit bash<cr>
+map <c-x><c-b>v :ConqueTermVSplit bash<cr>
+map <c-x><c-b>t :ConqueTermTab bash<cr>
+imap <c-x><c-b>n :ConqueTerm bash<cr>
+imap <c-x><c-b>h :ConqueTermSplit bash<cr>
+imap <c-x><c-b>v :ConqueTermVSplit bash<cr>
+imap <c-x><c-b>t :ConqueTermTab bash<cr>
 "seted
 
 "command-t
@@ -544,16 +565,19 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 
 " Shougo/neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 " SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
+" if has('conceal')
+"     set conceallevel=2 concealcursor=i
+" endif
 
+" let g:neosnippet#snippets_directory="~/.vim/snippets/"
+" let g:neosnippet#enable_snipmate_compatibility=1
+let g:neosnippet#disable_select_mode_mappings = 0
 
 
 " a.vim
