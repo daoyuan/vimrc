@@ -328,10 +328,6 @@ endfunction
 
 "==========================插件设置=============================
 
-" gocode"
-set rtp+=/usr/local/go/misc/vim
-
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -400,6 +396,15 @@ Bundle 'scrooloose/syntastic'
 Bundle 'klen/python-mode'
 Bundle 'JSON.vim'
 
+" Bundle 'ZenCoding.vim'
+Bundle 'vividchalk.vim'
+Bundle 'molokai'
+Bundle 'surround.vim'
+Bundle 'NrrwRgn'
+Bundle 'Align'
+Bundle 'EasyMotion'
+Bundle 'matchit.zip'
+Bundle 'Vim-R-plugin'
 
 
 " non github repos
@@ -597,7 +602,7 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax 
 augroup END 
 
-
+au FileType * try | execute "compiler ".&filetype | catch /./ | endtry
 
 "=========================== unused plugins ==========================
 
