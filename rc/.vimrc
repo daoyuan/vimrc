@@ -331,7 +331,7 @@ endfunction
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/vundle
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -405,6 +405,7 @@ Bundle 'Align'
 Bundle 'EasyMotion'
 Bundle 'matchit.zip'
 Bundle 'Vim-R-plugin'
+Bundle 'tpope/vim-pathogen'
 
 
 " non github repos
