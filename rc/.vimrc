@@ -121,6 +121,7 @@ au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l | set formatopt
 
 au FileType python set cursorcolumn | call s:python_gf()
 
+au FileType * try | execute "compiler ".&filetype | catch /./ | endtry
 
 "==========================映射===============================
 
@@ -336,7 +337,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
 
 " My Bundles here:
 
@@ -406,6 +407,10 @@ Bundle 'EasyMotion'
 Bundle 'matchit.zip'
 Bundle 'Vim-R-plugin'
 Bundle 'tpope/vim-pathogen'
+Bundle 'mileszs/ack.vim'
+Bundle 'vimwiki'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'jnwhiteh/vim-golang'
 
 
 " non github repos
@@ -546,13 +551,15 @@ endif
 
 
 " altercation/vim-colors-solarized
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-    let g:solarized_termcolors=256
-endif
-colorscheme solarized
+" if has('gui_running')
+"     set background=light
+" else
+"     set background=dark
+"     let g:solarized_termcolors=256
+" endif
+" colorscheme solarized
+
+colorscheme Tomorrow-Night-Bright
 
 
 " Indent-Guides
@@ -603,7 +610,9 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax 
 augroup END 
 
-au FileType * try | execute "compiler ".&filetype | catch /./ | endtry
+" task list
+map <leader>todo <Plug>TaskList
+
 
 "=========================== unused plugins ==========================
 

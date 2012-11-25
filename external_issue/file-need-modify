@@ -1,0 +1,4 @@
+delete snippet dir under bundel/{ neosnippet, snipmate } for solve the conflict of snipmate multidefinition with ~/.vim/snippets/
+
+bundle/clang-complete/plugin/clang_complete.vim:line 88
+    delete the line to disable <cr> mapping for solve the conflict with auto-pairs
