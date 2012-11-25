@@ -466,7 +466,7 @@ command! GtagsUpdate call s:gtags_update()
 "au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
 
 "csindent
-let g:csindent_ini='/home/daoyuan/.vim/csindent/.vim_csindent.ini'
+let g:csindent_ini='~/.vim/bundle_vundle_improper/csindent/csindent/.vim_csindent.ini'
 
 "nerdcommenter
 let NERDSpaceDelims=1
