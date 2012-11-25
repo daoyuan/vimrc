@@ -411,6 +411,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'vimwiki'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'jnwhiteh/vim-golang'
+" Bundle 'andrep/vimacs'
 
 
 " non github repos
@@ -612,6 +613,11 @@ augroup END
 
 " task list
 map <leader>todo <Plug>TaskList
+
+" Bundle 'andrep/vimacs'
+let g:VM_Enabled = 1
+let g:VM_SingleEscToNormal = 0
+let g:VM_NormalMetaXRemap = 0
 
 
 "=========================== unused plugins ==========================
