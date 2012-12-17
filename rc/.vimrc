@@ -411,7 +411,9 @@ Bundle 'mileszs/ack.vim'
 Bundle 'vimwiki'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'garyharan/vim-proto'
 " Bundle 'andrep/vimacs'
+Bundle 'ervandew/screen'
 
 
 " non github repos
@@ -618,6 +620,10 @@ map <leader>todo <Plug>TaskList
 let g:VM_Enabled = 1
 let g:VM_SingleEscToNormal = 0
 let g:VM_NormalMetaXRemap = 0
+
+
+" Bundle 'ervandew/screen'
+
 
 
 "=========================== unused plugins ==========================
