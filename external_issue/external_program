@@ -1,0 +1,4 @@
+PythonTidy.py put in /usr/local/bin/
+
+rsense installation refer to http://cx4a.org/software/rsense/manual.html
+lack of $RSENSE_HOME/lib/rsense.jar, it can be found at https://github.com/Samsinite/rsense.git/vendor/rsense-0.3/lib/rsense.jar

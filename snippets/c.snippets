@@ -39,7 +39,6 @@ snippet once
 #Header Include-Guard for JIKE
 snippet jike_once
 	#ifndef ${1:`toupper(join(split(expand('%:p:r'), '/')[4:], '_').'_H_')`}
-
 	#define $1
 
 	${2}

@@ -337,7 +337,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-" Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " My Bundles here:
 
@@ -395,7 +395,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
 Bundle 'klen/python-mode'
-Bundle 'JSON.vim'
+Bundle 'vim-scripts/vim-json-bundle'
 
 " Bundle 'ZenCoding.vim'
 Bundle 'vividchalk.vim'
@@ -414,6 +414,12 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'garyharan/vim-proto'
 " Bundle 'andrep/vimacs'
 Bundle 'ervandew/screen'
+Bundle 'm2ym/rsense'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'lucapette/vim-ruby-doc'
+Bundle 'danchoi/ri.vim'
+" Bundle 'astashov/vim-ruby-debugger'
 
 
 " non github repos
@@ -601,18 +607,6 @@ let g:alternateNoDefaultAlternate=1
 
 
 
-" JSON.vim
-au! BufRead,BufNewFile *.json set filetype=json 
-augroup json_autocmd 
-    autocmd! 
-    autocmd FileType json set autoindent 
-    autocmd FileType json set formatoptions=tcq2l 
-    autocmd FileType json set textwidth=78 shiftwidth=2 
-    autocmd FileType json set softtabstop=2 tabstop=8 
-    autocmd FileType json set expandtab 
-    autocmd FileType json set foldmethod=syntax 
-augroup END 
-
 " task list
 map <leader>todo <Plug>TaskList
 
@@ -624,6 +618,11 @@ let g:VM_NormalMetaXRemap = 0
 
 " Bundle 'ervandew/screen'
 
+
+" Bundle 'm2ym/rsense'
+" Replace $RSENSE_HOME with the directory where RSense was installed
+let g:rsenseHome = "/home/daoyuan/.vim/bundle/rsense"
+let g:rsenseUseOmniFunc = 1
 
 
 "=========================== unused plugins ==========================
