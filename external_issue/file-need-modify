@@ -2,3 +2,10 @@ delete snippet dir under bundel/{ neosnippet, snipmate } for solve the conflict 
 
 bundle/clang-complete/plugin/clang_complete.vim:line 88
     delete the line to disable <cr> mapping for solve the conflict with auto-pairs
+
+vim-emacs-bindings:
+    delete all <M  (gnome-terminal not support <Alt> well)
+    delete cnoremap <C-d> <Del> (C-d in command line mode to list command candidator, very useful)
+           cmap <C-p> <Up>      (overlap with vim default setting, default setting has more functionality than this)
+           cmap <C-n> <Down>    (overlap with vim default setting, default setting has more functionality than this)
+           cnoremap <C-h> <BS>  (overlap with vim default setting)

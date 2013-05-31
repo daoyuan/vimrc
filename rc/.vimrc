@@ -179,30 +179,6 @@ imap <C-F9> <Esc><C-F9>
 imap <C-ENTER> <Esc>o   
 
 
-
-
-"要在命令行上实现 Emacs 风格的编辑操作：
-" 至行首
-cnoremap <C-A>  <Home>
-" 后退一个字符
-cnoremap <C-B>  <Left>
-" 删除光标所在的字符
-" cnoremap <C-D>  <Del>
-" 至行尾
-cnoremap <C-E>  <End>
-" 前进一个字符
-cnoremap <C-F>  <Right>
-" 取回较新的命令行
-" cnoremap <C-N>  <Down>
-" 取回以前 (较旧的) 命令行
-" cnoremap <C-P>  <Up>
-" 后退一个单词
-cnoremap <Esc><C-B> <S-Left>
-" 前进一个单词
-cnoremap <Esc><C-F> <S-Right>
-
-
-
 "================================================================func===========================================================
 
 "定义Compile函数，用来调用进行编译和运行 
@@ -385,6 +361,7 @@ Bundle 'sprsquish/thrift.vim'
 " Bundle 'easytags.vim'
 Bundle 'TagHighlight'
 Bundle 'Indent-Guides'
+Bundle 'Yggdroot/indentLine'
 Bundle 'DoxygenToolkit.vim'
 " Bundle 'nsf/gocode'
 Bundle 'clang-complete'
@@ -413,6 +390,7 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'garyharan/vim-proto'
 " Bundle 'andrep/vimacs'
+Bundle 'maxbrunsfeld/vim-emacs-bindings'
 Bundle 'ervandew/screen'
 Bundle 'm2ym/rsense'
 Bundle 'vim-ruby/vim-ruby'
@@ -470,7 +448,7 @@ let g:neocomplcache_enable_at_startup = 1
 
 
 "snipMate
-let g:snips_author = 'ludaoyuan@jike.com (Daoyuan Lu)'
+let g:snips_author = 'ludaoyuan1989@gmail.com (Daoyuan Lu)'
 "seted
 
 "Gtags
@@ -623,6 +601,21 @@ let g:VM_NormalMetaXRemap = 0
 " Replace $RSENSE_HOME with the directory where RSense was installed
 let g:rsenseHome = "/home/daoyuan/.vim/bundle/rsense"
 let g:rsenseUseOmniFunc = 1
+
+
+" Bundle 'Yggdroot/indentLine'
+let g:indentLine_enabled = 0
+
+
+" Bundle 'klen/python-mode'
+let g:pymode_lint_checker = "pyflakes"
+
+
+" Bundle 'scrooloose/syntastic'
+let g:syntastic_cpp_include_dirs = [ '/home/daoyuan/workspace/coding/' ]
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['python'] }
 
 
 "=========================== unused plugins ==========================

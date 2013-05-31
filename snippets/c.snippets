@@ -37,7 +37,7 @@ snippet once
 
 	#endif /* end of include guard: $1 */
 #Header Include-Guard for JIKE
-snippet jike_once
+snippet jk_once
 	#ifndef ${1:`toupper(join(split(expand('%:p:r'), '/')[4:], '_').'_H_')`}
 	#define $1
 
@@ -45,15 +45,25 @@ snippet jike_once
 
 	#endif /* $1 */
 #Header Copyright
-snippet jike_header
+snippet jk_header
 	/**
 		* @copyright `strftime("%Y")` JIKE Inc. All Rights Reserved.
 		* @file `expand('%:t')`
 		* @brief ${1}
-		* @author `g:snips_author`
+		* @author ludaoyuan@jike.com (Daoyuan Lu)
 		* @date `strftime("%Y-%m-%d")`
 		*/
 	${2}
+#My Header Copyright
+snippet header
+	/**
+		* @copyright `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.
+		* @file `expand('%:t')`
+		* @brief ${2}
+		* @author $1
+		* @date `strftime("%Y-%m-%d")`
+		*/
+	${3}
 # If Condition
 snippet if
 	if (${1:/* condition */}) {
