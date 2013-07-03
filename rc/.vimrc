@@ -169,10 +169,13 @@ map <F8> :call Debug()<CR>
 "错误列表
 map <F5> :cp<cr>
 map <F6> :cnext<cr>
-map <F7> :QFtoggle<cr>
+map <C-F5> :lp<cr>
+map <C-F6> :lnext<cr>
 
 imap <F5> <Esc><F5>
 imap <F6> <Esc><F6>
+imap <C-F5> <Esc><C-F5>
+imap <C-F6> <Esc><C-F6>
 imap <F7> <Esc><F7>
 imap <F9> <Esc><F9>   
 imap <C-F9> <Esc><C-F9>   
@@ -260,20 +263,6 @@ func! Debug()
 endfunc 
 "结束定义Debug
 
-"toggle quickfix
-function! s:qf_toggle() 
-    for i in range(1, winnr('$')) 
-        let bnum = winbufnr(i) 
-        if getbufvar(bnum, '&buftype') == 'quickfix' 
-            cclose 
-            wincmd p
-            return 
-        endif 
-    endfor 
-    botright copen 8
-endfunction 
-
-command! QFtoggle call s:qf_toggle() 
 
 function! s:gtags_update()
     let l:result = system('global -u')
@@ -334,8 +323,8 @@ Bundle 'Tagbar'
 " Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
-Bundle 'neocomplcache'
-Bundle 'snipMate'
+" Bundle 'neocomplcache'
+" Bundle 'snipMate'
 " Bundle 'csindent.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'Auto-Pairs'
@@ -364,9 +353,9 @@ Bundle 'Indent-Guides'
 Bundle 'Yggdroot/indentLine'
 Bundle 'DoxygenToolkit.vim'
 " Bundle 'nsf/gocode'
-Bundle 'clang-complete'
-Bundle 'Shougo/neocomplcache-clang_complete'
-Bundle 'Shougo/neosnippet'
+" Bundle 'clang-complete'
+" Bundle 'Shougo/neocomplcache-clang_complete'
+" Bundle 'Shougo/neosnippet'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -397,6 +386,10 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'lucapette/vim-ruby-doc'
 Bundle 'danchoi/ri.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/ListToggle'
+Bundle 'tarmolov/TabLineNumbers.vim'
+Bundle 'SirVer/ultisnips'
 " Bundle 'astashov/vim-ruby-debugger'
 
 
@@ -429,10 +422,6 @@ endfunc
 let g:tagbar_width = 28
 
 
-"Grep
-"seted
-
-
 "nerd tree
 let NERDTreeWinSize=30
 
@@ -442,13 +431,13 @@ let NERDTreeWinSize=30
 
 
 "neocomplcach
-let g:neocomplcache_enable_at_startup = 1 
+" let g:neocomplcache_enable_at_startup = 1 
 
 "neocomplcache-snippets_complete
 
 
 "snipMate
-let g:snips_author = 'ludaoyuan1989@gmail.com (Daoyuan Lu)'
+" let g:snips_author = 'ludaoyuan1989@gmail.com (Daoyuan Lu)'
 "seted
 
 "Gtags
@@ -515,12 +504,12 @@ au BufRead,BufNewFile *.thrift set filetype=thrift
 " au! Syntax thrift source ~/.vim/thrift.vim"
 
 " neocomplcache-clang_complete
-let g:neocomplcache_force_overwrite_completefunc=1
+" let g:neocomplcache_force_overwrite_completefunc=1
 
 " clang-complete
-let g:clang_use_library = 1
-let g:clang_complete_macros = 1
-let g:clang_debug = 1
+" let g:clang_use_library = 1
+" let g:clang_complete_macros = 1
+" let g:clang_debug = 1
 " let g:clang_complete_auto = 0
 
 
@@ -577,7 +566,7 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 " let g:neosnippet#snippets_directory="~/.vim/snippets/"
 " let g:neosnippet#enable_snipmate_compatibility=1
-let g:neosnippet#disable_select_mode_mappings = 0
+" let g:neosnippet#disable_select_mode_mappings = 0
 
 
 " a.vim
@@ -612,10 +601,37 @@ let g:pymode_lint_checker = "pyflakes"
 
 
 " Bundle 'scrooloose/syntastic'
-let g:syntastic_cpp_include_dirs = [ '/home/daoyuan/workspace/coding/' ]
+" let g:syntastic_cpp_include_dirs = [ '/home/daoyuan/workspace/coding/' ]
+let g:syntastic_always_populate_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
             \ 'passive_filetypes': ['python'] }
+
+
+
+" Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-l>"
+" let g:UltiSnipsJumpForwardTrigger="<c-k>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-k>"
+let g:UltiSnipsSnippetDirectories=["my_snippets"]
+let g:snips_author='ludaoyuan1989@gmail.com (Daoyuan Lu)'
+
+
+" Bundle 'grep.vim'
+:let g:Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git'
+
+
+" Bundle 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_extra_conf_globlist = ['~/workspace/*','!~/*']
+
+
+" Bundle 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 8
 
 
 "=========================== unused plugins ==========================
