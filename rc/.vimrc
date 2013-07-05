@@ -489,7 +489,7 @@ imap <c-x><c-b>t :ConqueTermTab bash<cr>
 "seted
 
 "pathogen.vim
-call pathogen#infect('bundle_vundle_improper')
+call pathogen#infect('bundle_vundle_improper/{}')
 "seted
 
 
@@ -626,6 +626,12 @@ let g:snips_author='ludaoyuan1989@gmail.com (Daoyuan Lu)'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_extra_conf_globlist = ['~/workspace/*','!~/*']
+let g:ycm_filetype_blacklist = {
+            \ 'notes' : 1,
+            \ 'markdown' : 1,
+            \ 'text' : 1,
+            \ 'conque_term' : 1,
+            \}
 
 
 " Bundle 'Valloric/ListToggle'
