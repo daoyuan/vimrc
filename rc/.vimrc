@@ -26,6 +26,7 @@ set fileencodings=ucs-bom,utf-8,gb18030,cp936,big5,euc-jp,sjis,euc-kr,ucs-2le,la
 
 "设置忽略大小写，比如在搜索的时候
 set ignorecase
+set wildignorecase
 "设置鼠标为可行
 set mouse=a
 "永远显示状态行
@@ -39,6 +40,7 @@ set wrap
 
 set guioptions+=T
 set number
+set relativenumber
 set cursorline
 set tabstop=4
 set cindent shiftwidth=4
@@ -58,7 +60,7 @@ set textwidth=78
 set colorcolumn=+1
 " override by ftscript under /usr/**/vim73/ftplugin/c.vim", implement this in autocmd
 " set formatoptions+=1
-set formatoptions+=l
+set formatoptions+=lj
 
 "设置折叠 
 set foldcolumn=2 
@@ -86,7 +88,7 @@ set whichwrap+=<,>,[,]
 " 文件搜索路径，向上搜索(for gf op)
 set path+=;
 set path+=/usr/include/c++/**,/usr/include/**,/usr/local/include/**,/usr/lib/gcc/**2/include*/**
-set path+=~/workspace/coding/.ymake-out/dbg/thrift-out
+set path+=~/workspace/**1/.ymake-out/**1/*-out
 
 "设置默认目录
 if(g:isunix==1)
@@ -441,9 +443,9 @@ let NERDTreeWinSize=30
 "seted
 
 "Gtags
-map <F2> :Gtags 
-map <F3> :GtagsCursor 
-command! GtagsUpdate call s:gtags_update()
+" map <F2> :Gtags 
+" map <F3> :GtagsCursor 
+" command! GtagsUpdate call s:gtags_update()
 "au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
 
 "csindent
@@ -632,6 +634,8 @@ let g:ycm_filetype_blacklist = {
             \ 'text' : 1,
             \ 'conque_term' : 1,
             \}
+
+map <F3> :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
 
 " Bundle 'Valloric/ListToggle'
