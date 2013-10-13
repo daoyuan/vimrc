@@ -32,7 +32,7 @@ set mouse=a
 "永远显示状态行
 set laststatus=2
 
-"自动缩进设置 
+"自动缩进设置
 set cindent 
 set smartindent 
 set autoindent
@@ -73,6 +73,7 @@ set foldlevel=3
 "显示字节偏移量
 "set statusline=%o
 
+set undofile
 set nobackup
 "set nowritebackup
 
@@ -110,14 +111,14 @@ autocmd BufNewFile * normal G
 
 
 "设置Java代码的自动补全 
-au FileType java setlocal omnifunc=javacomplete#Complete
+" au FileType java setlocal omnifunc=javacomplete#Complete
 
 "When .vimrc is edited, reload it
-if(g:isunix==1)
-    autocmd! bufwritepost .vimrc source ~/.vimrc
-else
-    autocmd! bufwritepost _vimrc source $VIM/_vimrc
-endif
+" if(g:isunix==1)
+    " autocmd! bufwritepost .vimrc source ~/.vimrc
+" else
+    " autocmd! bufwritepost _vimrc source $VIM/_vimrc
+" endif
 
 au FileType c,cpp,java set formatoptions+=1|set formatoptions-=l | set formatoptions+=t
 
@@ -317,82 +318,76 @@ Bundle 'gmarik/vundle'
 
 " vim-scripts repos
 "
-" Bundle 'Command-T'
-" Bundle 'Conque-Shell'
+"""""" general
 Bundle 'fugitive.vim'
-" Bundle 'pyflakes.vim'
 Bundle 'Tagbar'
-" Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
-" Bundle 'neocomplcache'
-" Bundle 'snipMate'
-" Bundle 'csindent.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'Auto-Pairs'
 Bundle 'vcscommand.vim'
-" Bundle 'pathogen.vim'
-" Bundle 'neocomplcache-snippets_complete'
-" Bundle 'ShowMarks'
-" Bundle 'SuperTab'
-" Bundle 'STL-improved'
-" Bundle 'autoload_cscope.vim'
-" Bundle 'FuzzyFinder'
-" Bundle 'L9'
 Bundle 'a.vim'
-" Bundle 'mru.vim'
-" Bundle 'lookupfile'
-" Bundle 'genutils'
-" Bundle 'JavaScript-Indent'
-" Bundle 'ZenCoding.vim'
-" Bundle 'vim-jsbeautify'
-" Bundle 'einars/js-beautify'
-Bundle 'sprsquish/thrift.vim'
-" Bundle 'std_c.zip'
-" Bundle 'easytags.vim'
-Bundle 'TagHighlight'
-Bundle 'Indent-Guides'
-Bundle 'Yggdroot/indentLine'
-Bundle 'DoxygenToolkit.vim'
-" Bundle 'nsf/gocode'
-" Bundle 'clang-complete'
-" Bundle 'Shougo/neocomplcache-clang_complete'
-" Bundle 'Shougo/neosnippet'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Indent-Guides'
+" Bundle 'Yggdroot/indentLine'
 Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/syntastic'
-Bundle 'klen/python-mode'
-Bundle 'vim-scripts/vim-json-bundle'
-
-" Bundle 'ZenCoding.vim'
-Bundle 'vividchalk.vim'
-Bundle 'molokai'
 Bundle 'surround.vim'
 Bundle 'NrrwRgn'
 Bundle 'Align'
 Bundle 'EasyMotion'
 Bundle 'matchit.zip'
-Bundle 'Vim-R-plugin'
-Bundle 'tpope/vim-pathogen'
 Bundle 'mileszs/ack.vim'
-Bundle 'vimwiki'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'garyharan/vim-proto'
-" Bundle 'andrep/vimacs'
 Bundle 'maxbrunsfeld/vim-emacs-bindings'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kshenoy/vim-signature'
+Bundle 'vimwiki'
 Bundle 'ervandew/screen'
+Bundle 'Valloric/ListToggle'
+Bundle 'tpope/vim-pathogen'
+Bundle 'Shougo/unite.vim'
+Bundle 'joedicastro/DirDiff.vim'
+Bundle 'benmills/vimux'
+Bundle 'vim-scripts/utl.vim'
+Bundle 'bling/vim-airline'
+Bundle 'sjl/gundo.vim'
+Bundle 'terryma/vim-multiple-cursors'
+
+
+"""""" theme/color
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'vividchalk.vim'
+Bundle 'molokai'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'Rykka/colorv.vim'
+
+
+""""""  
+Bundle 'SirVer/ultisnips'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+Bundle 'DoxygenToolkit.vim'
+
+
+"""""" specific programming language
+Bundle 'sprsquish/thrift.vim'
+Bundle 'garyharan/vim-proto'
+Bundle 'elzr/vim-json'
+Bundle 'pangloss/vim-javascript'
+Bundle 'klen/python-mode'
+Bundle 'Vim-R-plugin'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'm2ym/rsense'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'lucapette/vim-ruby-doc'
 Bundle 'danchoi/ri.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Valloric/ListToggle'
-Bundle 'tarmolov/TabLineNumbers.vim'
-Bundle 'SirVer/ultisnips'
+Bundle 'plasticboy/vim-markdown'
+" Bundle 'nsf/gocode'
+" Bundle 'vim-jsbeautify'
+" Bundle 'einars/js-beautify'
+" Bundle 'ZenCoding.vim'
 " Bundle 'astashov/vim-ruby-debugger'
+
+
 
 
 " non github repos
@@ -642,6 +637,51 @@ map <F3> :YcmCompleter GoToDefinitionElseDeclaration<cr>
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 8
+
+
+
+" Bundle 'terryma/vim-multiple-cursors'
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 1
+
+
+" Bundle 'sjl/gundo.vim'
+let g:gundo_auto_preview = 0
+
+
+" Bundle 'mbbill/undotree'
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_DiffCommand = "diff -u"
+
+
+" Bundle 'bling/vim-airline'
+" let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_buffers = 0
+
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#checks = ['indent']
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
+let g:airline#extensions#tabline#left_sep = '⮀'
+let g:airline#extensions#tabline#left_alt_sep = '⮁'
+
+
+" Bundle 'joedicastro/DirDiff.vim'
+let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg"
 
 
 "=========================== unused plugins ==========================

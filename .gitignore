@@ -1,6 +1,8 @@
 .netrwhist
 *.o
 *.so
+*.un~
+*.swp
 bundle/
 tags
 tags-cn
