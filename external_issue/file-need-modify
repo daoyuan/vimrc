@@ -10,3 +10,9 @@ vim-emacs-bindings:
            cmap <C-n> <Down>    (overlap with vim default setting, default setting has more functionality than this)
            cnoremap <C-h> <BS>  (overlap with vim default setting)
            imap <C-k> <C-r>=<SID>kill_line()<CR>       (overlap with ultisnips' expand setting)
+
+[gundo plugin patch(some useful features)]
+git fetch https://github.com/dsummersl/gundo.vim.git mergedpatches
+git checkout -b pullrequest FETCH_HEAD
+git checkout master
+git merge

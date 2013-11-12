@@ -319,7 +319,9 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 "
 """""" general
-Bundle 'fugitive.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'gregsexton/gitv'
 Bundle 'Tagbar'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
@@ -417,6 +419,7 @@ endfunc
 
 "tagbar config
 let g:tagbar_width = 28
+let g:tagbar_sort = 0
 
 
 "nerd tree
@@ -682,6 +685,12 @@ let g:airline#extensions#tabline#left_alt_sep = '⮁'
 
 " Bundle 'joedicastro/DirDiff.vim'
 let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg"
+
+
+" Bundle 'gregsexton/gitv'
+let g:Gitv_OpenHorizontal = 1
+let g:Gitv_TruncateCommitSubjects = 1
+
 
 
 "=========================== unused plugins ==========================
