@@ -1,0 +1,4 @@
+{{add to ~/.bashrc}}
+
+[for C-s/C-r forward/reverse-search-history]
+stty ixoff -ixon

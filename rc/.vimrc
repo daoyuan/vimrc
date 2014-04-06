@@ -102,6 +102,8 @@ set autochdir
 
 " colorscheme torte
 
+" activate config files of some plugins
+set rtp+=~/.vim/config_files
 
 "=============================AutoCommand===========================
 
@@ -319,7 +321,9 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 "
 """""" general
-Bundle 'fugitive.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'gregsexton/gitv'
 Bundle 'Tagbar'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
@@ -336,6 +340,8 @@ Bundle 'Align'
 Bundle 'EasyMotion'
 Bundle 'matchit.zip'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
+Bundle 'dyng/ctrlsf.vim'
 Bundle 'maxbrunsfeld/vim-emacs-bindings'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kshenoy/vim-signature'
@@ -350,6 +356,7 @@ Bundle 'vim-scripts/utl.vim'
 Bundle 'bling/vim-airline'
 Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'vim-scripts/TaskList.vim'
 
 
 """""" theme/color
@@ -444,7 +451,7 @@ let NERDTreeWinSize=30
 "au BufWritePost *.[ch],*.[CH],*.cpp,*.hpp,*.cxx,*.hxx,*.c++,*.cc,*.java,*.php,*.php3,*.phtml,*.[sS] call s:gtags_update()
 
 "csindent
-let g:csindent_ini='~/.vim/bundle_vundle_improper/csindent/csindent/.vim_csindent.ini'
+let g:csindent_ini='~/.vim/config_files/csindent/.vim_csindent.ini'
 
 "nerdcommenter
 let NERDSpaceDelims=1
@@ -682,6 +689,14 @@ let g:airline#extensions#tabline#left_alt_sep = '⮁'
 
 " Bundle 'joedicastro/DirDiff.vim'
 let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg"
+
+
+" Bundle 'gregsexton/gitv'
+let g:Gitv_OpenHorizontal = 1
+" let g:Gitv_WrapLines = 1
+let g:Gitv_TruncateCommitSubjects = 1
+
+
 
 
 "=========================== unused plugins ==========================
