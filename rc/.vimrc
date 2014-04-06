@@ -424,6 +424,7 @@ endfunc
 
 "tagbar config
 let g:tagbar_width = 28
+let g:tagbar_sort = 0
 
 
 "nerd tree
@@ -695,7 +696,6 @@ let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg
 let g:Gitv_OpenHorizontal = 1
 " let g:Gitv_WrapLines = 1
 let g:Gitv_TruncateCommitSubjects = 1
-
 
 
 
