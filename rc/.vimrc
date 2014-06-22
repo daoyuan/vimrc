@@ -357,6 +357,8 @@ Bundle 'bling/vim-airline'
 Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'vim-scripts/TaskList.vim'
+Bundle 'skwp/greplace.vim'
+Bundle 'tpope/vim-repeat'
 
 
 """""" theme/color
@@ -376,18 +378,16 @@ Bundle 'DoxygenToolkit.vim'
 
 """""" specific programming language
 Bundle 'sprsquish/thrift.vim'
-Bundle 'garyharan/vim-proto'
 Bundle 'elzr/vim-json'
-Bundle 'pangloss/vim-javascript'
 Bundle 'klen/python-mode'
 Bundle 'Vim-R-plugin'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'm2ym/rsense'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'lucapette/vim-ruby-doc'
 Bundle 'danchoi/ri.vim'
 Bundle 'plasticboy/vim-markdown'
+
+Bundle 'sheerun/vim-polyglot'
 " Bundle 'nsf/gocode'
 " Bundle 'vim-jsbeautify'
 " Bundle 'einars/js-beautify'
@@ -630,7 +630,7 @@ let g:snips_author='ludaoyuan1989@gmail.com (Daoyuan Lu)'
 " Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_extra_conf_globlist = ['~/workspace/*','!~/*']
+let g:ycm_extra_conf_globlist = ['~/workspace/*','/data0/src_code/*','!~/*']
 let g:ycm_filetype_blacklist = {
             \ 'notes' : 1,
             \ 'markdown' : 1,
@@ -697,6 +697,10 @@ let g:Gitv_OpenHorizontal = 1
 " let g:Gitv_WrapLines = 1
 let g:Gitv_TruncateCommitSubjects = 1
 
+
+" Bundle 'skwp/greplace.vim'
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
 
 
 "=========================== unused plugins ==========================
