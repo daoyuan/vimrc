@@ -88,6 +88,7 @@ set whichwrap+=<,>,[,]
 
 " 文件搜索路径，向上搜索(for gf op)
 set path+=;
+set path+=include/**1;~/workspace
 set path+=/usr/include/c++/**,/usr/include/**,/usr/local/include/**,/usr/lib/gcc/**2/include*/**
 set path+=~/workspace/**1/.ymake-out/**1/*-out
 
@@ -576,6 +577,7 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 " a.vim
 let g:alternateNoDefaultAlternate=1
+let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../public,sfr:../internal'
 
 
 
@@ -630,7 +632,7 @@ let g:snips_author='ludaoyuan1989@gmail.com (Daoyuan Lu)'
 " Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_extra_conf_globlist = ['~/workspace/*','/data0/src_code/*','!~/*']
+let g:ycm_extra_conf_globlist = ['~/workspace/*','/data0/*','/data0/src_code/*','!~/*']
 let g:ycm_filetype_blacklist = {
             \ 'notes' : 1,
             \ 'markdown' : 1,
@@ -696,6 +698,10 @@ let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg
 let g:Gitv_OpenHorizontal = 1
 " let g:Gitv_WrapLines = 1
 let g:Gitv_TruncateCommitSubjects = 1
+
+
+" Bundle 'mileszs/ack.vim'
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 " Bundle 'skwp/greplace.vim'
