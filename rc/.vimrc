@@ -74,6 +74,7 @@ set foldlevel=3
 "set statusline=%o
 
 set undofile
+set undodir=~/.vim/tmp/undodir
 set nobackup
 "set nowritebackup
 
