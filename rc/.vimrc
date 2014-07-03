@@ -584,7 +584,7 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 " a.vim
 let g:alternateNoDefaultAlternate=1
-let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../public,sfr:../internal'
+let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../public,sfr:../internal,sfr:./src,reg:|/src$|||'
 
 
 
