@@ -8,3 +8,9 @@ http://powerline.readthedocs.org/en/latest/fontpatching.html
 
 rking/ag.vim | dyng/ctrlsf.vim
 git clone https://github.com/ggreer/the_silver_searcher ag && cd ag && ./build.sh && sudo make install
+
+[golang]
+    go get github.com/bradfitz/goimports
+    go get code.google.com/p/rog-go/exp/cmd/godef
+    go get github.com/nsf/gocode
+    go get github.com/jstemmer/gotags

@@ -326,7 +326,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
-Bundle 'Tagbar'
+Bundle 'majutsushi/tagbar'
 Bundle 'The-NERD-Commenter'
 Bundle 'grep.vim'
 Bundle 'bufexplorer.zip'
@@ -395,14 +395,19 @@ Bundle 'lucapette/vim-ruby-doc'
 Bundle 'danchoi/ri.vim'
 Bundle 'plasticboy/vim-markdown'
 
-Bundle 'sheerun/vim-polyglot'
-" Bundle 'nsf/gocode'
 " Bundle 'vim-jsbeautify'
 " Bundle 'einars/js-beautify'
 " Bundle 'ZenCoding.vim'
 " Bundle 'astashov/vim-ruby-debugger'
 
 
+"""""" golang
+Bundle 'dgryski/vim-godef'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
+
+"""""" last Bundle this for avoid ft conflict
+Bundle 'sheerun/vim-polyglot'
 
 
 " non github repos
@@ -714,6 +719,36 @@ let g:Gitv_TruncateCommitSubjects = 1
 " Bundle 'skwp/greplace.vim'
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
+
+
+" Bundle 'majutsushi/tagbar'
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [ 
+                \ 'p:package',  
+                \ 'i:imports:1', 
+                \ 'c:constants',  
+                \ 'v:variables', 
+                \ 't:types',  
+                \ 'n:interfaces', 
+                \ 'w:fields', 
+                \ 'e:embedded', 
+                \ 'm:methods', 
+                \ 'r:constructor', 
+                \ 'f:functions' 
+                \ ], 
+            \ 'sro' : '.', 
+            \ 'kind2scope' : { 
+                \ 't' : 'ctype',  
+                \ 'n' : 'ntype'  
+                \}, 
+            \ 'scope2kind' : { 
+                \ 'ctype' : 't',  
+                \ 'ntype' : 'n' 
+                \ }, 
+            \ 'ctagsbin'  : 'gotags',  
+            \ 'ctagsargs' : '-sort -silent'  
+            \ }
 
 
 "=========================== unused plugins ==========================
