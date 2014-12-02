@@ -148,8 +148,8 @@ snippet todo
 // TODO: 
 endsnippet
 
-snippet jk_once "Header Include-Guard for JIKE"
-#ifndef ${1:`!v toupper(join(split(expand('%:p:r'), '/')[4:], '_').'_H_')`}
+snippet cs_once "Header Include-Guard for CHINASO"
+#ifndef ${1:`!v toupper(join(split(expand('%:p:r'), '/')[match(split(expand('%:p:r'), '/'), 'trunk\|coding')+1:], '_').'_H_')`}
 #define $1
 
 ${2}
@@ -157,12 +157,12 @@ ${2}
 #endif /* $1 */
 endsnippet
 
-snippet jk_header "Header Copyright"
+snippet cs_header "Header Copyright"
 /**
- * @copyright `!v strftime("%Y")` JIKE Inc. All Rights Reserved.
+ * @copyright `!v strftime("%Y")` CHINASO Inc. All Rights Reserved.
  * @file `!v expand('%:t')`
  * @brief ${1}
- * @author ludaoyuan@jike.com (Daoyuan Lu)
+ * @author ludaoyuan@chinaso.com (Daoyuan Lu)
  * @date `!v strftime("%Y-%m-%d")`
  */
 ${2}
