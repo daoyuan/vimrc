@@ -14,3 +14,13 @@ git clone https://github.com/ggreer/the_silver_searcher ag && cd ag && ./build.s
     go get code.google.com/p/rog-go/exp/cmd/godef
     go get github.com/nsf/gocode
     go get github.com/jstemmer/gotags
+
+pythonbrew
+    LD_RUN_PATH=$HOME/.pythonbrew/pythons/Python-x.x.x/lib pythonbrew install -j2 -C '--enable-shared' --force -v x.x.x
+
+pyclewn
+    pyclewn.sourceforge.net/install.html
+    {
+    vim pyclewn-2.1.vmb
+    :UseVimball ~/.vim/bundle_vundle_improper/pyclewn/
+    }

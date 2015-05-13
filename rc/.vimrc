@@ -706,6 +706,12 @@ let g:airline#extensions#tabline#left_alt_sep = '⮁'
 let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg"
 
 
+" Bundle 'airblade/vim-gitgutter'
+nmap <Leader>ghs <Plug>GitGutterStageHunk
+nmap <Leader>ghr <Plug>GitGutterRevertHunk
+nmap <Leader>ghp <Plug>GitGutterPreviewHunk
+
+
 " Bundle 'gregsexton/gitv'
 let g:Gitv_OpenHorizontal = 1
 " let g:Gitv_WrapLines = 1
