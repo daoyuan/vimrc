@@ -368,6 +368,7 @@ Bundle 'bootleq/vim-cycle'
 Bundle 'godlygeek/tabular'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'vim-scripts/renamer.vim'
+Bundle 'Chiel92/vim-autoformat'
 
 """""" theme/color
 Bundle 'altercation/vim-colors-solarized'
