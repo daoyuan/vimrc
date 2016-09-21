@@ -304,119 +304,120 @@ endfunction
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 
 " original repos on github
 "
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 
 " vim-scripts repos
 "
 """""" general
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'gregsexton/gitv'
-Bundle 'majutsushi/tagbar'
-Bundle 'The-NERD-Commenter'
-Bundle 'grep.vim'
-Bundle 'bufexplorer.zip'
-Bundle 'Auto-Pairs'
-Bundle 'vcscommand.vim'
-Bundle 'a.vim'
-" Bundle 'Indent-Guides'
-" Bundle 'Yggdroot/indentLine'
-Bundle 'kien/ctrlp.vim'
-Bundle 'surround.vim'
-Bundle 'NrrwRgn'
-Bundle 'EasyMotion'
-Bundle 'matchit.zip'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'dyng/ctrlsf.vim'
-Bundle 'maxbrunsfeld/vim-emacs-bindings'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kshenoy/vim-signature'
-Bundle 'vimwiki'
-Bundle 'ervandew/screen'
-Bundle 'Valloric/ListToggle'
-Bundle 'tpope/vim-pathogen'
-Bundle 'Shougo/unite.vim'
-Bundle 'joedicastro/DirDiff.vim'
-Bundle 'benmills/vimux'
-Bundle 'vim-scripts/utl.vim'
-Bundle 'bling/vim-airline'
-Bundle 'sjl/gundo.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'skwp/greplace.vim'
-Bundle 'tpope/vim-repeat'
-Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'tpope/vim-abolish'
-Bundle 'vim-scripts/VisIncr'
-Bundle 'AndrewRadev/inline_edit.vim'
-Bundle 'bootleq/vim-cycle'
-Bundle 'godlygeek/tabular'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'vim-scripts/renamer.vim'
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'gregsexton/gitv'
+Plugin 'majutsushi/tagbar'
+Plugin 'The-NERD-Commenter'
+Plugin 'grep.vim'
+Plugin 'bufexplorer.zip'
+Plugin 'Auto-Pairs'
+Plugin 'vcscommand.vim'
+Plugin 'a.vim'
+" Plugin 'Indent-Guides'
+" Plugin 'Yggdroot/indentLine'
+Plugin 'kien/ctrlp.vim'
+Plugin 'surround.vim'
+Plugin 'NrrwRgn'
+Plugin 'EasyMotion'
+Plugin 'matchit.zip'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'maxbrunsfeld/vim-emacs-bindings'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kshenoy/vim-signature'
+Plugin 'vimwiki'
+Plugin 'ervandew/screen'
+Plugin 'Valloric/ListToggle'
+Plugin 'tpope/vim-pathogen'
+Plugin 'Shougo/unite.vim'
+Plugin 'joedicastro/DirDiff.vim'
+Plugin 'benmills/vimux'
+Plugin 'vim-scripts/utl.vim'
+Plugin 'bling/vim-airline'
+Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-scripts/TaskList.vim'
+Plugin 'skwp/greplace.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'tpope/vim-abolish'
+Plugin 'vim-scripts/VisIncr'
+Plugin 'AndrewRadev/inline_edit.vim'
+Plugin 'bootleq/vim-cycle'
+Plugin 'godlygeek/tabular'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'vim-scripts/renamer.vim'
+Plugin 'Chiel92/vim-autoformat'
 
 """""" theme/color
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vividchalk.vim'
-Bundle 'molokai'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'Rykka/colorv.vim'
-Bundle 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vividchalk.vim'
+Plugin 'molokai'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'Rykka/colorv.vim'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 """"""  
-Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
-Bundle 'DoxygenToolkit.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'DoxygenToolkit.vim'
 
 
 """""" specific programming language
-Bundle 'sprsquish/thrift.vim'
-Bundle 'elzr/vim-json'
-Bundle 'klen/python-mode'
-Bundle 'Vim-R-plugin'
-Bundle 'm2ym/rsense'
-Bundle 'tpope/vim-rails'
-Bundle 'lucapette/vim-ruby-doc'
-Bundle 'danchoi/ri.vim'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'sprsquish/thrift.vim'
+Plugin 'elzr/vim-json'
+Plugin 'klen/python-mode'
+Plugin 'Vim-R-plugin'
+Plugin 'm2ym/rsense'
+Plugin 'tpope/vim-rails'
+Plugin 'lucapette/vim-ruby-doc'
+Plugin 'danchoi/ri.vim'
+Plugin 'plasticboy/vim-markdown'
 
-" Bundle 'vim-jsbeautify'
-" Bundle 'einars/js-beautify'
-" Bundle 'ZenCoding.vim'
-" Bundle 'astashov/vim-ruby-debugger'
+" Plugin 'vim-jsbeautify'
+" Plugin 'einars/js-beautify'
+" Plugin 'ZenCoding.vim'
+" Plugin 'astashov/vim-ruby-debugger'
 
 
 """""" golang
-Bundle 'dgryski/vim-godef'
-Bundle 'Blackrush/vim-gocode'
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'dgryski/vim-godef'
+Plugin 'Blackrush/vim-gocode'
+Plugin 'jnwhiteh/vim-golang'
 
-"""""" last Bundle this for avoid ft conflict
-Bundle 'sheerun/vim-polyglot'
+"""""" last Plugin this for avoid ft conflict
+Plugin 'sheerun/vim-polyglot'
 
 
 " non github repos
 "
-" Bundle 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " ...
 
+call vundle#end()             " required!
 filetype plugin indent on     " required!
 " or 
 " filetype plugin on          " to not use the indentation settings set by plugins
@@ -598,30 +599,30 @@ let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,
 " task list
 map <leader>todo <Plug>TaskList
 
-" Bundle 'andrep/vimacs'
+" Plugin 'andrep/vimacs'
 let g:VM_Enabled = 1
 let g:VM_SingleEscToNormal = 0
 let g:VM_NormalMetaXRemap = 0
 
 
-" Bundle 'ervandew/screen'
+" Plugin 'ervandew/screen'
 
 
-" Bundle 'm2ym/rsense'
+" Plugin 'm2ym/rsense'
 " Replace $RSENSE_HOME with the directory where RSense was installed
 let g:rsenseHome = "/home/daoyuan/.vim/bundle/rsense"
 let g:rsenseUseOmniFunc = 1
 
 
-" Bundle 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 let g:indentLine_enabled = 0
 
 
-" Bundle 'klen/python-mode'
+" Plugin 'klen/python-mode'
 let g:pymode_lint_checker = "pyflakes"
 
 
-" Bundle 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 " let g:syntastic_cpp_include_dirs = [ '/home/daoyuan/workspace/coding/' ]
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -630,7 +631,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 
 
-" Bundle 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-l>"
 " let g:UltiSnipsJumpForwardTrigger="<c-k>"
@@ -639,11 +640,11 @@ let g:UltiSnipsSnippetDirectories=["my_snippets"]
 let g:snips_author='ludaoyuan1989@gmail.com (Daoyuan Lu)'
 
 
-" Bundle 'grep.vim'
+" Plugin 'grep.vim'
 :let g:Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git'
 
 
-" Bundle 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_extra_conf_globlist = ['~/workspace/*','/data0/*','/data0/src_code/*','!~/*']
@@ -657,28 +658,28 @@ let g:ycm_filetype_blacklist = {
 map <F3> :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
 
-" Bundle 'Valloric/ListToggle'
+" Plugin 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 8
 
 
 
-" Bundle 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 1
 
 
-" Bundle 'sjl/gundo.vim'
+" Plugin 'sjl/gundo.vim'
 let g:gundo_auto_preview = 0
 
 
-" Bundle 'mbbill/undotree'
+" Plugin 'mbbill/undotree'
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_DiffCommand = "diff -u"
 
 
-" Bundle 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
 " let g:airline_powerline_fonts=1
 " let g:airline_theme='powerlineish'
 
@@ -704,32 +705,32 @@ let g:airline#extensions#tabline#left_sep = '⮀'
 let g:airline#extensions#tabline#left_alt_sep = '⮁'
 
 
-" Bundle 'joedicastro/DirDiff.vim'
+" Plugin 'joedicastro/DirDiff.vim'
 let g:DirDiffExcludes = "CVS,*.pyc,*.class,*.exe,.*.swp,*.o,.svn,.git,.*.un~,.hg"
 
 
-" Bundle 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 nmap <Leader>ghs <Plug>GitGutterStageHunk
 nmap <Leader>ghr <Plug>GitGutterRevertHunk
 nmap <Leader>ghp <Plug>GitGutterPreviewHunk
 
 
-" Bundle 'gregsexton/gitv'
+" Plugin 'gregsexton/gitv'
 let g:Gitv_OpenHorizontal = 1
 " let g:Gitv_WrapLines = 1
 let g:Gitv_TruncateCommitSubjects = 1
 
 
-" Bundle 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
-" Bundle 'skwp/greplace.vim'
+" Plugin 'skwp/greplace.vim'
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
 
-" Bundle 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 let g:tagbar_type_go = {
             \ 'ctagstype' : 'go',
             \ 'kinds'     : [ 
