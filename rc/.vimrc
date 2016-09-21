@@ -376,6 +376,7 @@ Bundle 'vividchalk.vim'
 Bundle 'molokai'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'Rykka/colorv.vim'
+Bundle 'vim-airline/vim-airline-themes'
 
 
 """"""  
@@ -679,7 +680,7 @@ let g:undotree_DiffCommand = "diff -u"
 
 " Bundle 'bling/vim-airline'
 " let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
