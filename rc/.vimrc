@@ -103,8 +103,6 @@ endif
 "设置当前文件目录
 set autochdir
 
-" colorscheme torte
-
 " activate config files of some plugins
 set rtp+=~/.vim/config_files
 
@@ -374,10 +372,6 @@ Plugin 'Chiel92/vim-autoformat'
 " Plugin 'Shougo/vimproc.vim'
 
 """""" theme/color
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vividchalk.vim'
-Plugin 'molokai'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'Rykka/colorv.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline-themes'
@@ -549,16 +543,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-
-
-" altercation/vim-colors-solarized
-" if has('gui_running')
-"     set background=light
-" else
-"     set background=dark
-"     let g:solarized_termcolors=256
-" endif
-" colorscheme solarized
 
 colorscheme Tomorrow-Night-Bright
 
