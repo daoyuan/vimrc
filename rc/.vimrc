@@ -92,6 +92,7 @@ set path+=;
 set path+=include/**1;~/workspace
 set path+=/usr/include/c++/**,/usr/include/**,/usr/local/include/**,/usr/lib/gcc/**2/include*/**
 set path+=~/workspace/**1/.ymake-out/**1/*-out
+set path+=yrdata/**0;~/workspace
 
 "设置默认目录
 if(g:isunix==1)
@@ -369,6 +370,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/renamer.vim'
 Plugin 'Chiel92/vim-autoformat'
+" Plugin 'Shougo/vimshell.vim'
+" Plugin 'Shougo/vimproc.vim'
 
 """""" theme/color
 Plugin 'altercation/vim-colors-solarized'
@@ -376,6 +379,7 @@ Plugin 'vividchalk.vim'
 Plugin 'molokai'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'Rykka/colorv.vim'
+Plugin 'flazz/vim-colorschemes'
 
 
 """"""  
@@ -591,7 +595,7 @@ hi IndentGuidesEven guibg=green ctermbg=4
 
 " a.vim
 let g:alternateNoDefaultAlternate=1
-let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../public,sfr:../internal,sfr:./src,reg:|/src$|||'
+let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../public,sfr:../internal,sfr:./src,sfr:./internal,reg:|/src$|||,reg:|/src/|/include/||,reg:|/include/|/src/||,sfr:../'
 
 
 
@@ -653,6 +657,7 @@ let g:ycm_filetype_blacklist = {
             \ 'text' : 1,
             \ 'conque_term' : 1,
             \}
+            " \ 'vimshell' : 1,
 
 map <F3> :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
