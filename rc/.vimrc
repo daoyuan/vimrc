@@ -380,6 +380,7 @@ Plugin 'molokai'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'Rykka/colorv.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 """"""  
@@ -685,7 +686,7 @@ let g:undotree_DiffCommand = "diff -u"
 
 " Plugin 'bling/vim-airline'
 " let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
