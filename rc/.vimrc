@@ -710,13 +710,25 @@ let g:Gitv_OpenHorizontal = 1
 let g:Gitv_TruncateCommitSubjects = 1
 
 
+" Plugin 'rking/ag.vim'
+nnoremap <Leader>ag :Ag!<Space>
+
+
 " Plugin 'mileszs/ack.vim'
-" let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap <Leader>ak :Ack!<Space>
+if executable('ag')
+    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+endif
 
 
 " Plugin 'skwp/greplace.vim'
-set grepprg=ag
-let g:grep_cmd_opts = '--line-numbers --noheading'
+if executable('ag')
+    set grepprg=ag
+    let g:grep_cmd_opts = '--line-numbers --noheading'
+else
+    set grepprg=ack
+    let g:grep_cmd_opts = '--noheading'
+endif
 
 
 " Plugin 'majutsushi/tagbar'
