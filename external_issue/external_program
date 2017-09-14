@@ -4,10 +4,15 @@ rsense installation refer to http://cx4a.org/software/rsense/manual.html
 lack of $RSENSE_HOME/lib/rsense.jar, it can be found at https://github.com/Samsinite/rsense.git/vendor/rsense-0.3/lib/rsense.jar
 
 airline; powerline font
-http://powerline.readthedocs.org/en/latest/fontpatching.html
+1 现成的字体下载后在Terminal中选择:
+    https://github.com/powerline/fonts
+    Terminal->Preferences->font->Anonymous Pro for Powerline Bold
+2 对目前的字体打补丁，就是不改变Terminal字体，把powerline的6个符号打补丁打进现在的字体里:
+    https://www.zhihu.com/question/36593223
+    https://stackoverflow.com/questions/19105279/how-can-i-setup-my-vim-airline-or-vim-powerline
+    https://stackoverflow.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
 
 rking/ag.vim | dyng/ctrlsf.vim
-git clone https://github.com/ggreer/the_silver_searcher ag && cd ag && ./build.sh && sudo make install
 apt install silversearcher-ag
 
 [golang]
@@ -25,3 +30,6 @@ pyclewn
     vim pyclewn-2.1.vmb
     :UseVimball ~/.vim/bundle_vundle_improper/pyclewn/
     }
+
+suan/vim-instant-markdown
+sudo npm -g install instant-markdown-d
