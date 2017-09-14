@@ -394,6 +394,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'lucapette/vim-ruby-doc'
 Plugin 'danchoi/ri.vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 
 " Plugin 'vim-jsbeautify'
 " Plugin 'einars/js-beautify'
@@ -756,6 +757,10 @@ let g:tagbar_type_go = {
             \ 'ctagsbin'  : 'gotags',  
             \ 'ctagsargs' : '-sort -silent'  
             \ }
+
+" Plugin 'suan/vim-instant-markdown'
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
 
 
 "=========================== unused plugins ==========================
