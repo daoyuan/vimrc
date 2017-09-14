@@ -385,7 +385,7 @@ Plugin 'DoxygenToolkit.vim'
 
 
 """""" specific programming language
-Plugin 'sprsquish/thrift.vim'
+Plugin 'solarnz/thrift.vim'
 Plugin 'elzr/vim-json'
 Plugin 'klen/python-mode'
 Plugin 'Vim-R-plugin'
@@ -518,9 +518,6 @@ call pathogen#infect('bundle_vundle_improper/{}')
 "c/c++ complete
 "python cscope
 
-
-au BufRead,BufNewFile *.thrift set filetype=thrift
-" au! Syntax thrift source ~/.vim/thrift.vim"
 
 " neocomplcache-clang_complete
 " let g:neocomplcache_force_overwrite_completefunc=1
