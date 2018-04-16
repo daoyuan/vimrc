@@ -1,1 +1,1 @@
-./configure --with-features=huge  --enable-luainterp=yes  --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-tclinterp --enable-rubyinterp=yes --enable-cscope  --enable-sniff --enable-multibyte  --enable-xim --enable-fontset  --enable-gui=gnome2
+./configure --with-features=huge  --enable-luainterp=yes  --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-tclinterp --enable-rubyinterp=yes --enable-cscope  --enable-multibyte  --enable-xim --enable-fontset  --enable-gui=gnome2

@@ -33,3 +33,9 @@ pyclewn
 
 suan/vim-instant-markdown
 sudo npm -g install instant-markdown-d
+
+majutsushi/tagbar
+apt install exuberant-ctags
+
+klen/python-mode
+apt install pyflakes

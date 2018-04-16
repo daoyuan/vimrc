@@ -386,7 +386,7 @@ Plugin 'DoxygenToolkit.vim'
 
 """""" specific programming language
 Plugin 'solarnz/thrift.vim'
-Plugin 'elzr/vim-json'
+" Plugin 'elzr/vim-json'
 Plugin 'klen/python-mode'
 Plugin 'Vim-R-plugin'
 Plugin 'm2ym/rsense'
@@ -405,7 +405,7 @@ Plugin 'suan/vim-instant-markdown'
 """""" golang
 Plugin 'dgryski/vim-godef'
 Plugin 'Blackrush/vim-gocode'
-Plugin 'jnwhiteh/vim-golang'
+" Plugin 'jnwhiteh/vim-golang'
 
 """""" last Plugin this for avoid ft conflict
 Plugin 'sheerun/vim-polyglot'
@@ -642,7 +642,8 @@ let g:ycm_filetype_blacklist = {
             \}
             " \ 'vimshell' : 1,
 
-map <F3> :YcmCompleter GoToDefinitionElseDeclaration<cr>
+map <F3> :YcmCompleter GoTo<cr>
+map <leader>y :YcmCompleter <C-d>
 
 
 " Plugin 'Valloric/ListToggle'
