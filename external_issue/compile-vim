@@ -1,3 +1,0 @@
-sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.3 liblua5.3-dev perl libperl-dev tcl tcl-dev cscope
-
-./configure --with-features=huge --enable-fail-if-missing --enable-luainterp=yes --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=no --enable-tclinterp --enable-rubyinterp=yes --enable-cscope  --enable-multibyte  --enable-xim --enable-fontset  --enable-gui=gnome2 --enable-terminal

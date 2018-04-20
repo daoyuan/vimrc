@@ -1,0 +1,8 @@
+[deps]:
+sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.3 liblua5.3-dev perl libperl-dev tcl tcl-dev cscope
+
+[compile]:
+./configure --with-features=huge --enable-fail-if-missing --enable-luainterp=yes --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=no --enable-tclinterp --enable-rubyinterp=yes --enable-cscope  --enable-multibyte  --enable-xim --enable-fontset  --enable-gui=gnome2 --enable-terminal
+
+[update-alternatives]:
+(OLD_TARGET="/usr/bin/vim.basic"; NEW_TARGET="/usr/local/bin/vim"; NEW_PRIO=50; echo "*** BEFORE ***"; update-alternatives --get-selections; echo "*********"; IFS=$'\n'; for ALTERNATIVE in `update-alternatives --get-selections | grep ${OLD_TARGET} | awk '{print $1}'`; do sudo update-alternatives --verbose --install `which ${ALTERNATIVE}` ${ALTERNATIVE} ${NEW_TARGET} ${NEW_PRIO}; sudo update-alternatives --set ${ALTERNATIVE} ${NEW_TARGET}; done; echo "*** AFTER ***"; update-alternatives --get-selections)
